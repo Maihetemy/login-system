@@ -8,8 +8,8 @@
     <title>login</title>
 
     <!-- css -->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- font-awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
@@ -18,7 +18,34 @@
 </head>
 
 <body>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio temporibus ullam quam aperiam excepturi et tempora provident ipsa expedita neque omnis, saepe debitis alias sint recusandae voluptatem molestiae non. Tenetur!</p>
+    <div class="login d-flex text-white justify-content-center align-items-center">
+        <div class="container custom-shadow p-5">
+            <h1 class="my-3">Smart Login System</h1>
+            <div class="div">
+                <div class="mb-3">
+                    <input type="text" class="form-control text-white rounded-1 bg-transparent" id="signUpName"
+                        placeholder="Enter your name" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control text-white rounded-1 bg-transparent" id="signUpEmail"
+                        placeholder="Enter your email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3"> <input type="password"
+                        class="form-control rounded-1 text-white btn-outline-info bg-transparent"
+                        placeholder="Enter your password" id="signUpPassword">
+                </div>
+                <button type="submit" id="signUpButton"
+                    class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100">Sign
+                    Up</button>
+            </div>
+            <p class="d-flex justify-content-center">Have you an account?<span class="text-capitalize"> sign in</span>
+            </p>
+        </div>
+    </div>
+
+
+
+
     <!-- js -->
     <script src="js/main.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>

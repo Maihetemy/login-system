@@ -1,4 +1,51 @@
+
+/* general */
 :root {
     --main-color: #24353F;
     --secondary-color: #17A2B8;
+}
+
+body {
+    background-color: var(--main-color);
+    min-height: 100vh;
+}
+
+.main-color-bg {
+    background-color: var(--main-color);
+}
+
+.main-color {
+    color: var(--main-color);
+}
+
+/* login */
+.login{
+    min-height: 100vh;
+    
+}
+
+.login h1{
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 3rem;
+}
+
+input::placeholder {
+    color: #ccc; 
+    opacity: 1;  
+}
+
+input:focus::placeholder {
+    color: #aaa; 
+}
+.custom-shadow{
+    -webkit-box-shadow: 0 0 30px #000000;
+    box-shadow: 0 0 30px #000000;
+}
+
+.btn-primary:hover{
+    background-color: var(--secondary-color) !important;
+    color: white;
 }
