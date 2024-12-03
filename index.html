@@ -20,10 +20,10 @@
 <body>
     <div class="login d-flex text-white justify-content-center align-items-center">
         <div class="container custom-shadow p-5">
-            <h1 class="my-3">Smart Login System</h1>
+            <h1 class="my-3">Smart Sign Up System</h1>
             <div class="div">
                 <div class="mb-3">
-                    <input type="text" class="form-control text-white rounded-1 bg-transparent" id="signUpName"
+                    <input type="text" class="form-control text-white rounded-1 bg-transparent d-block" id="signUpName"
                         placeholder="Enter your name" aria-describedby="emailHelp">
                 </div>
                 <div class="mb-3">
@@ -35,10 +35,12 @@
                         placeholder="Enter your password" id="signUpPassword">
                 </div>
                 <button type="submit" id="signUpButton"
-                    class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100">Sign
+                    class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100 d-block">Sign
                     Up</button>
+                <button type="submit" id="loginButton"
+                    class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100 d-none">Login</button>
             </div>
-            <p class="d-flex justify-content-center">Have you an account?<span class="text-capitalize"> sign in</span>
+            <p class="d-flex justify-content-center">Have you an account?<span class="text-capitalize" id="signInAndUpSapn">sign in</span>
             </p>
         </div>
     </div>

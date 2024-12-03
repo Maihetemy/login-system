@@ -49,3 +49,7 @@ input:focus::placeholder {
     background-color: var(--secondary-color) !important;
     color: white;
 }
+
+#signInAndUpSapn{
+    cursor: pointer;
+}
