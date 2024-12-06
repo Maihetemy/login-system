@@ -21,7 +21,8 @@ var haveNotAccount = document.getElementById('haveNotAccount');
 
 var authScreen = document.querySelector('.authScreen');
 
-var homeScreen = document.querySelector('h1');
+var homeScreen = document.querySelector('.homeScreen');
+var homeUserNameTitle = document.querySelector('.homeScreen h1');
 
 var usersList = [];
 
@@ -61,8 +62,28 @@ signUpButton.addEventListener('click', function () {
 // login event
 loginButton.addEventListener('click', function () {
 
+    if(verifyLoginInputs()){
+        home();
+    }
+    console.log(loginPassword.value);
+    console.log(loginEmail.value);
+    
+    
+    // console.log(usersList[0].userName);
+    // console.log(usersList[0].userEmail);
+    
+
 });
 
+function verifyLoginInputs(){
+    for(var i=0; i<usersList.length; i++){
+        if(loginPassword.value == usersList[0].userPassword){
+            console.log('mogooooooood');
+            return true;
+        }
+    }
+    return false;
+}
 
 // -------------------------------------------------------------------
 // sign up
@@ -104,7 +125,9 @@ function loginHide() {
 // -------------------------------------------------------------------
 // home
 function home() {
-
+    homeScreen.classList.replace('d-none', 'd-flex');
+    authScreen.classList.replace('d-flex', 'd-none');
+    homeUserNameTitle.innerHTML = `Hello ${signUpName.value} !`
 }
 
 // ---------------------------------------------------------------------

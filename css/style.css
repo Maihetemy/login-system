@@ -53,3 +53,9 @@ input:focus::placeholder {
 #signInAndUpSapn{
     cursor: pointer;
 }
+
+
+.homeScreen{
+    height: 100vh;
+    
+}
