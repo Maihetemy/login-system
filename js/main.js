@@ -17,9 +17,11 @@ var loginButton = document.getElementById('loginButton');
 var haveNotAccount = document.getElementById('haveNotAccount');
 // -----------------------------------------------------------------------------
 
+var validAccountAlert = document.getElementById('validAccountAlert');
 
 
 var authScreen = document.querySelector('.authScreen');
+;
 
 var homeScreen = document.querySelector('.homeScreen');
 var homeUserNameTitle = document.querySelector('.homeScreen h1');
@@ -28,13 +30,12 @@ var usersList = [];
 
 
 // when user open the website---------------------------------------------------------------
-if (localStorage.getItem('users')) { usersList = JSON.parse(localStorage.getItem('users'));}
+if (localStorage.getItem('users')) { usersList = JSON.parse(localStorage.getItem('users')); }
 signUpDisplay();
 // --------------------------------------------------------------------------------------------
 
 
 
-// sign up event
 signUpButton.addEventListener('click', function () {
     var user = {
         userName: signUpName.value,
@@ -59,31 +60,41 @@ signUpButton.addEventListener('click', function () {
 
 });
 
-// login event
+
 loginButton.addEventListener('click', function () {
 
-    if(verifyLoginInputs()){
-        home();
-    }
-    console.log(loginPassword.value);
-    console.log(loginEmail.value);
-    
-    
-    // console.log(usersList[0].userName);
-    // console.log(usersList[0].userEmail);
-    
-
-});
-
-function verifyLoginInputs(){
-    for(var i=0; i<usersList.length; i++){
-        if(loginPassword.value == usersList[0].userPassword){
+    var mogod = 0 , emailBs = 0, message = '';
+    for (var i = 0; i < usersList.length; i++) {
+        if (loginPassword.value === usersList[i].userPassword && loginEmail.value === usersList[i].userEmail) {
             console.log('mogooooooood');
-            return true;
+            mogod = 1;
+            home();
+            break;
+        }
+        if (loginEmail.value === usersList[i].userEmail) {
+            emailBs = 1;
         }
     }
-    return false;
+    if (mogod === 0 && emailBs === 1) {message = 'elpassword 8alt';}
+    if (mogod === 0 && emailBs === 0) {message = 'msh mogood';}
+    console.log(message);
+    validAccountAlert.innerHTML = `${message}`;
+    validAccountAlert.classList.replace('d-none', 'd-block');
 }
+
+);
+
+// function verifyLoginInputs(){
+//     for(var i=0; i<usersList.length; i++){
+//         if(loginPassword.value == usersList[i].userPassword && loginEmail.value == usersList[i].userEmail){
+//             console.log('mogooooooood');
+//             return true;
+//         }
+//         else if(){}
+//         else if
+//     }
+//     return false;
+// }
 
 // -------------------------------------------------------------------
 // sign up
