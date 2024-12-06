@@ -18,13 +18,13 @@ body {
     color: var(--main-color);
 }
 
-/* login */
-.login{
+/* authScreen */
+.authScreen{
     min-height: 100vh;
     
 }
 
-.login h1{
+.authScreen h1{
     color: var(--secondary-color);
     text-align: center;
     font-size: 2.5rem;

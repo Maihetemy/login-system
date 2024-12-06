@@ -18,31 +18,55 @@
 </head>
 
 <body>
-    <div class="login d-flex text-white justify-content-center align-items-center">
+    <div class="authScreen d-flex text-white justify-content-center align-items-center">
         <div class="container custom-shadow p-5">
-            <h1 class="my-3">Smart Sign Up System</h1>
+            <h1 class="my-3 d-none" id="signupScreenTitle">Sign Up</h1>
+            <h1 class="my-3 d-none" id="loginScreenTitle">Login</h1>
             <div class="div">
                 <div class="mb-3">
-                    <input type="text" class="form-control text-white rounded-1 bg-transparent d-block" id="signUpName"
+                    <input type="text" oninput="validation(this);"
+                        class="form-control text-white rounded-1 bg-transparent d-none" id="signUpName"
                         placeholder="Enter your name" aria-describedby="emailHelp">
+                    <div class="alert alert-danger d-none" role="alert"> A simple danger alert—check it out!</div>
                 </div>
+
                 <div class="mb-3">
-                    <input type="email" class="form-control text-white rounded-1 bg-transparent" id="signUpEmail"
+                    <input type="email" oninput="validation(this);"
+                        class="form-control text-white rounded-1 bg-transparent d-none" id="signUpEmail"
                         placeholder="Enter your email" aria-describedby="emailHelp">
+                    <div class="alert alert-danger d-none" role="alert">A simple danger alert—check it out!</div>
+
+                    <input type="email" oninput="validation(this);"
+                        class="form-control text-white rounded-1 bg-transparent d-none" id="loginEmail"
+                        placeholder="Enter your email" aria-describedby="emailHelp">
+                    <div class="alert alert-danger d-none" role="alert">A simple danger alert—check it out!</div>
                 </div>
-                <div class="mb-3"> <input type="password"
-                        class="form-control rounded-1 text-white btn-outline-info bg-transparent"
+
+                <div class="mb-3">
+                    <input oninput="validation(this);"
+                        class="form-control rounded-1 text-white btn-outline-info bg-transparent d-none"
                         placeholder="Enter your password" id="signUpPassword">
+                    <div class="alert alert-danger d-none" role="alert"> A simple danger alert—check it out!</div>
+
+                    <input oninput="validation(this);"
+                        class="form-control rounded-1 text-white btn-outline-info bg-transparent  d-none"
+                        placeholder="Enter your password" id="loginPassword">
+                    <div class="alert alert-danger d-none" role="alert"> A simple danger alert—check it out!</div>
                 </div>
+
                 <button type="submit" id="signUpButton"
-                    class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100 d-block">Sign
+                    class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100 d-none">Sign
                     Up</button>
                 <button type="submit" id="loginButton"
                     class="btn btn-primary my-3 btn-outline-info bg-transparent rounded-1 w-100 d-none">Login</button>
             </div>
-            <p class="d-flex justify-content-center">Have you an account?<span class="text-capitalize" id="signInAndUpSapn">sign in</span>
-            </p>
+            <p id="haveAccount" class="d-flex justify-content-center d-none">Have you an account? Login</p>
+            <p id="haveNotAccount" class="d-flex justify-content-center d-none">Have you not have an account? Sign Up</p>
         </div>
+    </div>
+
+    <div class="homeScreen d-flex justify-content-center bg-white">
+        <h1 class="mt-5 d-none">Hello !</h1>
     </div>
 
 
