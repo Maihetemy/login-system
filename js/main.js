@@ -21,10 +21,12 @@ var validAccountAlert = document.getElementById('validAccountAlert');
 
 
 var authScreen = document.querySelector('.authScreen');
-;
+
 
 var homeScreen = document.querySelector('.homeScreen');
 var homeUserNameTitle = document.querySelector('.homeScreen h1');
+
+var logout = document.getElementById('logout');
 
 var usersList = [];
 
@@ -34,7 +36,24 @@ if (localStorage.getItem('users')) { usersList = JSON.parse(localStorage.getItem
 signUpDisplay();
 // --------------------------------------------------------------------------------------------
 
+logout.addEventListener('click', function () {
+    usersList = usersList.filter(function (ele) { return ele.userEmail !== signUpEmail.value; });
+    localStorage.setItem('users', JSON.stringify(usersList));
+    signUpDisplay();
+    homeHide();
+    loginHide();
+    clear();
 
+})
+
+
+function clear(){
+    signUpName.value = null;
+    signUpEmail.value = null;
+    signUpPassword.value = null;
+    loginEmail.value = null;
+    loginPassword.value = null;
+}
 
 signUpButton.addEventListener('click', function () {
     var user = {
@@ -44,10 +63,15 @@ signUpButton.addEventListener('click', function () {
     }
 
     if (validation(signUpEmail) && validation(signUpPassword) && validation(signUpName)) {
-        usersList.push(user);
-        localStorage.setItem('users', JSON.stringify(usersList));
-        signUpHide();
-        loginDisplay();
+        if (validEmail(signUpEmail.value)) {
+            usersList.push(user);
+            localStorage.setItem('users', JSON.stringify(usersList));
+            signUpHide();
+            loginDisplay();
+        }
+        else {
+            window.alert('Email taken, write an another email!')
+        }
 
     }
     else {
@@ -60,41 +84,35 @@ signUpButton.addEventListener('click', function () {
 
 });
 
+function validEmail(email) {
+    for (var i = 0; i < usersList.length; i++) {
+        if (usersList[i].userEmail === email) return false;
+    }
+    return true;
+}
 
 loginButton.addEventListener('click', function () {
 
-    var mogod = 0 , emailBs = 0, message = '';
+    var mogod = 0, emailBs = 0, message = '';
     for (var i = 0; i < usersList.length; i++) {
         if (loginPassword.value === usersList[i].userPassword && loginEmail.value === usersList[i].userEmail) {
             console.log('mogooooooood');
             mogod = 1;
-            home();
+            homeDisplay();
             break;
         }
         if (loginEmail.value === usersList[i].userEmail) {
             emailBs = 1;
         }
     }
-    if (mogod === 0 && emailBs === 1) {message = 'elpassword 8alt';}
-    if (mogod === 0 && emailBs === 0) {message = 'msh mogood';}
+    if (mogod === 0 && emailBs === 1) { message = 'elpassword 8alt'; }
+    if (mogod === 0 && emailBs === 0) { message = 'msh mogood'; }
     console.log(message);
     validAccountAlert.innerHTML = `${message}`;
     validAccountAlert.classList.replace('d-none', 'd-block');
 }
 
 );
-
-// function verifyLoginInputs(){
-//     for(var i=0; i<usersList.length; i++){
-//         if(loginPassword.value == usersList[i].userPassword && loginEmail.value == usersList[i].userEmail){
-//             console.log('mogooooooood');
-//             return true;
-//         }
-//         else if(){}
-//         else if
-//     }
-//     return false;
-// }
 
 // -------------------------------------------------------------------
 // sign up
@@ -135,10 +153,14 @@ function loginHide() {
 
 // -------------------------------------------------------------------
 // home
-function home() {
+function homeDisplay() {
     homeScreen.classList.replace('d-none', 'd-flex');
     authScreen.classList.replace('d-flex', 'd-none');
     homeUserNameTitle.innerHTML = `Hello ${signUpName.value} !`
+}
+function homeHide() {
+    homeScreen.classList.replace('d-flex', 'd-none');
+    authScreen.classList.replace('d-none', 'd-flex');
 }
 
 // ---------------------------------------------------------------------
