@@ -21,7 +21,7 @@ var loginSpan = document.querySelector('#haveAccount span');
 
 var validAccountAlert = document.getElementById('validAccountAlert');
 var emailTaken = document.getElementById('emailTaken');
-var passwordEye = document.querySelector('.eyeClass .fa-solid');
+var passwordEyeSignup = document.getElementById('passwordEyeSignup');
 
 
 var authScreen = document.querySelector('.authScreen');
@@ -50,17 +50,19 @@ logout.addEventListener('click', function () {
 
 })
 
-passwordEye.addEventListener('click', function () {
-    passwordEyeFunction();
+passwordEyeSignup.addEventListener('click', function () {
+    passwordEyeFunction(signUpPassword, passwordEyeSignup);
 });
 
-function passwordEyeFunction(input) {
-    if (input.type = "password") {
-        passwordEye.classList.replace('fa-eye', 'fa-eye-slash');
+function passwordEyeFunction(input, icon) {
+    if (input.type === "password") {
+        icon.classList.replace('fa-eye', 'fa-eye-slash');
         input.type = "text";
+        console.log(input.type);
+        
 
     } else {
-        passwordEye.classList.replace('fa-eye-slash', 'fa-eye');
+        icon.classList.replace('fa-eye-slash', 'fa-eye');
         input.type = "password";
     }
 }
@@ -94,7 +96,7 @@ signUpButton.addEventListener('click', function () {
             loginDisplay();
             clear();
             console.log('maioyaa');
-            
+
         }
         else {
             emailTaken.classList.replace('d-none', 'd-block');
@@ -121,7 +123,7 @@ loginButton.addEventListener('click', function () {
     for (var i = 0; i < usersList.length; i++) {
         if (loginPassword.value === usersList[i].userPassword && loginEmail.value === usersList[i].userEmail) {
             foundUser = 1;
-            homeDisplay(usersList[i].userName);  
+            homeDisplay(usersList[i].userName);
             clear();
             console.log('login');
             break;
@@ -195,7 +197,7 @@ function homeDisplay(name) {
     authScreen.classList.replace('d-flex', 'd-none');
     homeUserNameTitle.innerHTML = `Hello ${name} !`
     console.log(name);
-    
+
 }
 function homeHide() {
     homeScreen.classList.replace('d-block', 'd-none');
