@@ -20,6 +20,7 @@ var loginSpan = document.querySelector('#haveAccount span');
 // -----------------------------------------------------------------------------
 
 var validAccountAlert = document.getElementById('validAccountAlert');
+var emailTaken = document.getElementById('emailTaken');
 
 
 var authScreen = document.querySelector('.authScreen');
@@ -55,6 +56,12 @@ function clear() {
     signUpPassword.value = null;
     loginEmail.value = null;
     loginPassword.value = null;
+    validAccountAlert.classList.replace('d-block', 'd-none');
+    emailTaken.classList.replace('d-block', 'd-none');
+    signUpName.nextElementSibling.classList.replace('d-block', 'd-none');
+    signUpPassword.nextElementSibling.classList.replace('d-block', 'd-none');
+    signUpEmail.nextElementSibling.classList.replace('d-block', 'd-none');
+
 }
 
 signUpButton.addEventListener('click', function () {
@@ -70,17 +77,17 @@ signUpButton.addEventListener('click', function () {
             localStorage.setItem('users', JSON.stringify(usersList));
             signUpHide();
             loginDisplay();
+            clear();
         }
         else {
-            window.alert('Email taken, write an another email!')
+            emailTaken.classList.replace('d-none', 'd-block');
         }
 
     }
     else {
-        if (validation(signUpEmail) === false) window.alert('Your Email is wrong !\n Example : maihetemy@gmail.com')
-        if (validation(signUpPassword) === false) window.alert('Your Password is wrong !\n Example : 123456789&Mm')
-        if (validation(signUpName) === false) window.alert('Your name is wrong !\n Example : Mai Hetemy')
-
+        if (validation(signUpEmail) === false) signUpEmail.nextElementSibling.classList.replace('d-none', 'd-block');
+        if (validation(signUpPassword) === false) signUpPassword.nextElementSibling.classList.replace('d-none', 'd-block');
+        if (validation(signUpName) === false) signUpName.nextElementSibling.classList.replace('d-none', 'd-block');
     }
 
 
@@ -95,20 +102,20 @@ function validEmail(email) {
 
 loginButton.addEventListener('click', function () {
 
-    var mogod = 0, emailBs = 0, message = '';
+    var foundUser  = 0, emailExists  = 0, message = '';
     for (var i = 0; i < usersList.length; i++) {
         if (loginPassword.value === usersList[i].userPassword && loginEmail.value === usersList[i].userEmail) {
-            console.log('mogooooooood');
-            mogod = 1;
+            foundUser  = 1;
             homeDisplay();
+            clear();
             break;
         }
         if (loginEmail.value === usersList[i].userEmail) {
-            emailBs = 1;
+            emailExists  = 1;
         }
     }
-    if (mogod === 0 && emailBs === 1) { message = 'elpassword 8alt'; }
-    if (mogod === 0 && emailBs === 0) { message = 'msh mogood'; }
+    if (foundUser  === 0 && emailExists  === 1) { message = 'Incorrect password. Please try again.'; }
+    if (foundUser  === 0 && emailExists  === 0) { message = 'Account not found. Please register first.'; }
     console.log(message);
     validAccountAlert.innerHTML = `${message}`;
     validAccountAlert.classList.replace('d-none', 'd-block');
@@ -180,7 +187,7 @@ function homeHide() {
 // validation
 function validation(user) {
     var regex = {
-        signUpName: /^[A-Z]\w+$/,
+        signUpName: /^[A-Z][a-z]*(\s[a-zA-Z]+)*$/,
         signUpPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
         signUpEmail: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     }

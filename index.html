@@ -27,14 +27,17 @@
                     <input type="text" oninput="validation(this);"
                         class="form-control text-white rounded-1 bg-transparent d-none" id="signUpName"
                         placeholder="Enter your name" aria-describedby="emailHelp">
-                    <div class="alert alert-danger d-none" role="alert"> A simple danger alert—check it out!</div>
+                    <div class="alert alert-danger d-none" role="alert">The name must start with an uppercase letter and
+                        contain only letters, numbers, or underscores.</div>
                 </div>
 
                 <div class="mb-3">
                     <input type="email" oninput="validation(this);"
                         class="form-control text-white rounded-1 bg-transparent d-none" id="signUpEmail"
                         placeholder="Enter your email" aria-describedby="emailHelp">
-                    <div class="alert alert-danger d-none" role="alert">A simple danger alert—check it out!</div>
+                    <div class="alert alert-danger d-none" role="alert">Please enter a valid email address, e.g.,
+                        example@domain.com.</div>
+                    <div class="alert alert-danger d-none" id="emailTaken" role="alert">Email taken, write an another email!</div>
 
                     <input type="email" class="form-control text-white rounded-1 bg-transparent d-none" id="loginEmail"
                         placeholder="Enter your email" aria-describedby="emailHelp">
@@ -45,7 +48,9 @@
                     <input oninput="validation(this);"
                         class="form-control rounded-1 text-white btn-outline-info bg-transparent d-none"
                         placeholder="Enter your password" id="signUpPassword">
-                    <div class="alert alert-danger d-none" role="alert"> A simple danger alert—check it out!</div>
+                    <div class="alert alert-danger d-none" role="alert">The password must be at least 8 characters long
+                        and include at least one uppercase letter, one lowercase letter, one number, and one special
+                        character.</div>
 
                     <input class="form-control rounded-1 text-white btn-outline-info bg-transparent  d-none"
                         placeholder="Enter your password" id="loginPassword">
