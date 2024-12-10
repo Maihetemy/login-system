@@ -59,3 +59,7 @@ input:focus::placeholder {
     height: 100vh;
     
 }
+
+#haveAccount span, #haveNotAccount span{
+    cursor: pointer;
+}

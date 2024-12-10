@@ -5,6 +5,7 @@ var signUpEmail = document.getElementById('signUpEmail');
 var signUpPassword = document.getElementById('signUpPassword');
 var signUpButton = document.getElementById('signUpButton');
 var haveAccount = document.getElementById('haveAccount');
+var signupSpan = document.querySelector('#haveNotAccount span');
 // -----------------------------------------------------------------------------
 
 
@@ -15,6 +16,7 @@ var loginEmail = document.getElementById('loginEmail');
 var loginPassword = document.getElementById('loginPassword');
 var loginButton = document.getElementById('loginButton');
 var haveNotAccount = document.getElementById('haveNotAccount');
+var loginSpan = document.querySelector('#haveAccount span');
 // -----------------------------------------------------------------------------
 
 var validAccountAlert = document.getElementById('validAccountAlert');
@@ -47,7 +49,7 @@ logout.addEventListener('click', function () {
 })
 
 
-function clear(){
+function clear() {
     signUpName.value = null;
     signUpEmail.value = null;
     signUpPassword.value = null;
@@ -114,6 +116,17 @@ loginButton.addEventListener('click', function () {
 
 );
 
+haveNotAccount.addEventListener('click', function () {
+    loginHide();
+    signUpDisplay();
+    clear();
+});
+haveAccount.addEventListener('click', function () {
+    signUpHide();
+    loginDisplay();
+    clear();
+});
+
 // -------------------------------------------------------------------
 // sign up
 function signUpDisplay() {
@@ -167,7 +180,7 @@ function homeHide() {
 // validation
 function validation(user) {
     var regex = {
-        signUpName: /^[A-Z]\w+ [A-Z]\w+$/,
+        signUpName: /^[A-Z]\w+$/,
         signUpPassword: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
         signUpEmail: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
     }
