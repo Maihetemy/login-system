@@ -1,4 +1,3 @@
-
 /* general */
 :root {
     --main-color: #24353F;
@@ -6,12 +5,12 @@
 }
 
 body {
-    background-color: var(--main-color);
+    /* background-color: var(--main-color) !important; */
     min-height: 100vh;
 }
 
 .main-color-bg {
-    background-color: var(--main-color);
+    background-color: var(--main-color) !important;
 }
 
 .main-color {
@@ -19,12 +18,12 @@ body {
 }
 
 /* authScreen */
-.authScreen{
+.authScreen {
     min-height: 100vh;
-    
+
 }
 
-.authScreen h1{
+.authScreen h1 {
     color: var(--secondary-color);
     text-align: center;
     font-size: 2.5rem;
@@ -33,33 +32,47 @@ body {
 }
 
 input::placeholder {
-    color: #ccc; 
-    opacity: 1;  
+    color: #ccc;
+    opacity: 1;
 }
 
 input:focus::placeholder {
-    color: #aaa; 
+    color: #aaa;
 }
-.custom-shadow{
+
+.custom-shadow {
     -webkit-box-shadow: 0 0 30px #000000;
     box-shadow: 0 0 30px #000000;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: var(--secondary-color) !important;
     color: white;
 }
 
-#signInAndUpSapn{
+#signInAndUpSapn {
     cursor: pointer;
 }
 
 
-.homeScreen{
+.homeScreen {
     height: 100vh;
-    
+
 }
 
-#haveAccount span, #haveNotAccount span{
+#haveAccount span,
+#haveNotAccount span,
+.eyeClass .fa-solid {
     cursor: pointer;
+}
+
+.eyeClass {
+    position: relative;
+}
+
+.fa-solid {
+    position: absolute;
+    top: .75rem;
+    right: 2.25rem;
+
 }
