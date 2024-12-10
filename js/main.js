@@ -6,6 +6,7 @@ var signUpPassword = document.getElementById('signUpPassword');
 var signUpButton = document.getElementById('signUpButton');
 var haveAccount = document.getElementById('haveAccount');
 var signupSpan = document.querySelector('#haveNotAccount span');
+var passwordEyeSignup = document.getElementById('passwordEyeSignup');
 // -----------------------------------------------------------------------------
 
 
@@ -17,11 +18,11 @@ var loginPassword = document.getElementById('loginPassword');
 var loginButton = document.getElementById('loginButton');
 var haveNotAccount = document.getElementById('haveNotAccount');
 var loginSpan = document.querySelector('#haveAccount span');
+var passwordEyeLogin = document.getElementById('passwordEyeLogin');
 // -----------------------------------------------------------------------------
 
 var validAccountAlert = document.getElementById('validAccountAlert');
 var emailTaken = document.getElementById('emailTaken');
-var passwordEyeSignup = document.getElementById('passwordEyeSignup');
 
 
 var authScreen = document.querySelector('.authScreen');
@@ -52,6 +53,9 @@ logout.addEventListener('click', function () {
 
 passwordEyeSignup.addEventListener('click', function () {
     passwordEyeFunction(signUpPassword, passwordEyeSignup);
+});
+passwordEyeLogin.addEventListener('click', function () {
+    passwordEyeFunction(loginPassword, passwordEyeLogin);
 });
 
 function passwordEyeFunction(input, icon) {
@@ -162,6 +166,7 @@ function signUpDisplay() {
     signUpPassword.classList.replace('d-none', 'd-block');
     signUpButton.classList.replace('d-none', 'd-block');
     haveAccount.classList.replace('d-none', 'd-block');
+    passwordEyeSignup.classList.replace('d-none', 'd-block');
 }
 function signUpHide() {
     signupScreenTitle.classList.replace('d-block', 'd-none');
@@ -170,6 +175,7 @@ function signUpHide() {
     signUpPassword.classList.replace('d-block', 'd-none');
     signUpButton.classList.replace('d-block', 'd-none');
     haveAccount.classList.replace('d-block', 'd-none');
+    passwordEyeSignup.classList.replace('d-block', 'd-none');
 }
 
 // -------------------------------------------------------------------
@@ -180,6 +186,7 @@ function loginDisplay() {
     loginPassword.classList.replace('d-none', 'd-block');
     loginButton.classList.replace('d-none', 'd-block');
     haveNotAccount.classList.replace('d-none', 'd-block');
+    passwordEyeLogin.classList.replace('d-none', 'd-block');
 }
 function loginHide() {
     loginScreenTitle.classList.replace('d-block', 'd-none');
@@ -187,6 +194,7 @@ function loginHide() {
     loginPassword.classList.replace('d-block', 'd-none');
     loginButton.classList.replace('d-block', 'd-none');
     haveNotAccount.classList.replace('d-block', 'd-none');
+    passwordEyeLogin.classList.replace('d-block', 'd-none');
 }
 
 
