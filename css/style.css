@@ -32,7 +32,7 @@ body {
 }
 
 input::placeholder {
-    color: #ccc;
+    color: #ccc !important;
     opacity: 1;
 }
 
@@ -73,6 +73,10 @@ input:focus::placeholder {
 .fa-solid {
     position: absolute;
     top: .75rem;
-    right: 2.25rem;
+    right: 0;
 
+}
+
+.password-eye {
+    transition: margin 0.3s ease;
 }

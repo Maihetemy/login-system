@@ -225,10 +225,15 @@ function validation(user) {
         user.nextElementSibling.classList.replace('d-block', 'd-none');
         user.classList.add('is-valid');
         user.classList.remove('is-invalid');
-        console.log('yes');
         return true;
     }
     else {
+        if(user.id === 'signUpPassword'){
+            passwordEyeSignup.classList.replace('me-3','me-5');
+        }
+        if(user.id === 'loginPassword'){
+            passwordEyeLogin.classList.replace('me-3','me-5');
+        }
         user.nextElementSibling.classList.replace('d-none', 'd-block');
         user.classList.add('is-invalid');
         user.classList.remove('is-valid');
